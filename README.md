@@ -1,2 +1,2 @@
 # RomanNumerals
-COnverts to and from roman numerals
+Converts to and from roman numerals
