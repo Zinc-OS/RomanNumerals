@@ -46,6 +46,12 @@ static int rn_val(char c){
 int fromRomanNumerals(char* rn){
 	// return value
 	int ret=0;
+	int sign=0;
+	//catch negative sign
+	if(*rn=='-'){
+		sign=1;
+		rn++;
+	}
 	//go through the string
 	for(char *s=rn;*s;s++){
 		//if non roman numeral value occurs, exit the loop and return
@@ -60,12 +66,24 @@ int fromRomanNumerals(char* rn){
 		
 	}
 	// return final value;
-	return ret;
+	if(sign)
+		return -ret;
+	else
+		return ret;
 }
 
 int toRomanNumerals(int rn, char* orn){
 	// return value, holds the number of characters that are needed to hold the roman numeral value
 	int ret=0;
+	if(rn<0)
+	{
+		ret++;
+		if(orn){
+			*orn++='-';
+		}
+		rn=-rn;
+	}
+
 	// possible charcters in roman numerals
 	const char *cs="MDCLXVI";
 	// charcaters which can create roman numerals structures like iv, ix, il, lx, etc
