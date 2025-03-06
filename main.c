@@ -31,7 +31,7 @@ int main(int argn, char** argv){
 				// get the length of string necessary to store the roman  numeral
 				int n=toRomanNumerals(l, NULL);
 				// allocate storage for the string (+1 for trailing nul)
-				char *c=malloc(n+1);
+				char *c=malloc(sizeof(char)*(n+1));
 				// store the roman numerals in c
 				toRomanNumerals(l, c);
 				// trail with nul
