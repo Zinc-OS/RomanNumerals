@@ -54,21 +54,24 @@ int fromRomanNumerals(char* rn){
 	}
 	char* bgn=rn;
 	char* end=rn;
+	// get to end of rn string
 	while(*end!=0){
 		end++;
 	}
 	end--;
 	int highest=0;
-	//go through the string
+	//go through the string backwards
 	for(char *c=end;c>=bgn;c--){
 		if(rn_val(*c)>=highest){
+			//normal value, set highest and add to running total ret
 			highest=rn_val(*c);
 			ret+=rn_val(*c);
 		}else{
+			//lower than highest, subtract from running total
 			ret-=rn_val(*c);
 		}
-		
 	}
+	
 	// return final value;
 	if(sign)
 		return -ret;
