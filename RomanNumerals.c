@@ -52,17 +52,21 @@ int fromRomanNumerals(char* rn){
 		sign=1;
 		rn++;
 	}
+	char* bgn=rn;
+	char* end=rn;
+	while(*end!=0){
+		end++;
+	}
+	end--;
+	int highest=0;
 	//go through the string
-	for(char *s=rn;*s;s++){
-		//if non roman numeral value occurs, exit the loop and return
-		if(rn_val(*s)==-1)
-			break;
-		//if the value is less then the next, subtract
-		if(rn_val(*s)<rn_val(*(s+1)) && rn_val(*(s+1))!=-1)
-			ret-=rn_val(*s);
-		//else add the value to the running total
-		else
-			ret+=rn_val(*s);
+	for(char *c=end;c>=bgn;c--){
+		if(rn_val(*c)>=highest){
+			highest=rn_val(*c);
+			ret+=rn_val(*c);
+		}else{
+			ret-=rn_val(*c);
+		}
 		
 	}
 	// return final value;
