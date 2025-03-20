@@ -60,7 +60,11 @@ int fromRomanNumerals(char* rn){
 	}
 	end--;
 	int highest=0;
+<<<<<<< HEAD
 	//go through the string backwards
+=======
+	//go through the string- backwards
+>>>>>>> 84b2122c51361f7c82cc974d44e71a4c2fdd9a8c
 	for(char *c=end;c>=bgn;c--){
 		if(rn_val(*c)>=highest){
 			//normal value, set highest and add to running total ret
